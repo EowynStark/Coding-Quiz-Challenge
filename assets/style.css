@@ -1,7 +1,26 @@
 /* create basic style */
-
+* {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color:slategrey;     
+}
 /* style the buttons */
-
+.start-button {
+    border-radius: 5px;
+    background-color:rebeccapurple;
+    color: cornsilk;
+    font-style: italic;
+}
 /* style the quiz card */
+#question1,
+#question2,
+#question3,
+#question4 {
+    visibility: hidden;
+}
 
 /* style the high scores card */
+#scoreboard {
+    border: 10px;
+    border-color: hotpink;
+    border-width: 10px;
+}

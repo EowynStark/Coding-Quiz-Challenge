@@ -9,55 +9,32 @@
 
     <body>
         <header>
-            <div class="title-banner">Coding Quiz</div>
+            <h1 class="title-banner">Coding Quiz</h1>
             <button class="start-button">Begin the Challenge</button>
         </header>
         
         <main>
             <section>
-                <div>Quiz Countdown</div>
-                  <h2 class="countdown-timer"></h2>  <!-- insert card for timer -->
+                <h2>Quiz Countdown</h2>
+                  <h3 id="countdown-timer"></h3>
             </section>
 
             <section>
-                <div class=quiz-container>
-                    <div id="question1" data-state = "hidden">
-                        <h2>From the following which is NOT a Primitive Data type?</h2>
-                        <form>
-                            <input type="checkbox"><label> Boolean</label><br>
-                            <input type="checkbox"><label> Number</label><br>
-                            <input type="checkbox"><label> String</label><br>
-                            <input type="checkbox"><label> Array</label>
-                        </form>
-                    </div>
-                    <div id="question2" data-state="hidden">
-                        <h2>What do you call a variable that includes a list of items as it's value?</h2>
-                        <form>
-                            <input type="checkbox"><label>Array</label><br>
-                            <input type="checkbox"><label>List</label><br>
-                            <input type="checkbox"><label>Function</label><br>
-                            <input type="checkbox"><label>Console</label>
-                        </form>
-                    </div>
-                    <div id="question3" data-state="hidden">
-                        <h2>How would you remove an item from an array?</h2>
-                        <form>
-                            <input type="checkbox"><label>.push()</label><br>
-                            <input type="checkbox"><label>.remove()</label><br>
-                            <input type="checkbox"><label>.delete()</label><br>
-                            <input type="checkbox"><label>.pop()</label>
-                        </form>
-                    </div>
-
-                </div><!-- insert card for quiz -->
+                <div id=quiz-container> 
+                </div>
+                <div id="answer-container">
+                </div>
             </section>
 
             <section>
-                <!-- insert card for highscores -->
+                <div id="current-score">
+                </div>
+                <div id="past-score">                    
+                </div>
             </section>
 
             
-        </main>    
+        </main>
+ <script src="./assets/scripts.js"></script>    
     </body>
-<script src="./assets/scripts.js"></script>
 </html>
