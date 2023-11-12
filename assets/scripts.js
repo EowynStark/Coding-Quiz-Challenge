@@ -46,7 +46,7 @@ function startQuiz(){
 function question1(){
     var question1 = questions[questionsIndex];
     questionDisplay.textContent = question1.question;
-
+// figure out how to make each button a different answer
     question1.answers.forEach((choice) => {
         var answerButton = document.createElement("button");
         answerButton.textContent = question1.answers;
@@ -59,10 +59,11 @@ function checkAnswer(userChoice) {
     var question1 = questions[questionsIndex];
     
     if (userChoice === question1.correctAnswer){
-        score++;
+        score += 10;
         scoreBoard();
+        question2();
     }else {
-        timeLeft--;
+        timeLeft-= 30;
     }
     question2();
 }
@@ -76,6 +77,7 @@ function question2(){
     } else {
         clearInterval(timedQuiz);
         timerElement.textContent = "GAME OVER";
+        scoreBoard();
     }
 }
 
@@ -91,30 +93,19 @@ function timedQuiz (){
         } else {
             timerElement.textContent = "GAME OVER";
             clearInterval(timedQuiz);
-            // insert function call for scoreboard
+            scoreBoard();
         }
     },1000);
 }   
 // create a function to retain the quiz scores (local storage set)
 function scoreBoard(){
     scoreElement.textContent = score;
-    localStorage.setItem(score)
+    localStorage.setItem(score);
+    scoringForm = document.createElement("<form><input type="/text/"></form>");
+    localStorage.setItem(scoringForm);
 }
 
 // create a function to render the high scores (local storage get)
 function pastScores(){
-    scoreBoardElement.textContent = localStorage.getItem(score)
+    scoreBoardElement.textContent = localStorage.getItem(scoringForm, score);
 }
-/* remove before publishing
-GIVEN I am taking a code quiz
-WHEN I click the start button
-THEN a timer starts and I am presented with a question
-WHEN I answer a question
-THEN I am presented with another question
-WHEN I answer a question incorrectly
-THEN time is subtracted from the clock
-WHEN all questions are answered or the timer reaches 0
-THEN the game is over
-WHEN the game is over
-THEN I can save my initials and my score 
-remove before publishing */
