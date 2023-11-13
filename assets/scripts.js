@@ -46,10 +46,10 @@ function startQuiz(){
 function question1(){
     var question1 = questions[questionsIndex];
     questionDisplay.textContent = question1.question;
-// figure out how to make each button a different answer
+
     question1.answers.forEach((choice) => {
         var answerButton = document.createElement("button");
-        answerButton.textContent = question1.answers;
+        answerButton.textContent = choice;
         answerButton.addEventListener("click", () => checkAnswer(choice));
         questionDisplay.appendChild(answerButton);
     });
@@ -60,7 +60,6 @@ function checkAnswer(userChoice) {
     
     if (userChoice === question1.correctAnswer){
         score += 10;
-        scoreBoard();
         question2();
     }else {
         timeLeft-= 30;
@@ -77,7 +76,6 @@ function question2(){
     } else {
         clearInterval(timedQuiz);
         timerElement.textContent = "GAME OVER";
-        scoreBoard();
     }
 }
 
@@ -93,7 +91,6 @@ function timedQuiz (){
         } else {
             timerElement.textContent = "GAME OVER";
             clearInterval(timedQuiz);
-            scoreBoard();
         }
     },1000);
 }   
@@ -101,7 +98,7 @@ function timedQuiz (){
 function scoreBoard(){
     scoreElement.textContent = score;
     localStorage.setItem(score);
-    scoringForm = document.createElement("<form><input type="/text/"></form>");
+    scoringForm = document.createElement("form");
     localStorage.setItem(scoringForm);
 }
 

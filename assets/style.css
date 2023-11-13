@@ -3,24 +3,27 @@
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color:slategrey;     
 }
+header {
+    padding: 5px;
+    margin: 5px;
+    border-color: rgb(118, 108, 57);
+    border-width: 5px;
+    border-style: solid;
+    border-radius: 10px;
+}
 /* style the buttons */
 .start-button {
+    padding: 3px;
+    margin: 3px;
     border-radius: 5px;
     background-color:rebeccapurple;
     color: cornsilk;
     font-style: italic;
 }
-/* style the quiz card */
-#question1,
-#question2,
-#question3,
-#question4 {
-    visibility: hidden;
-}
-
-/* style the high scores card */
-#scoreboard {
-    border: 10px;
-    border-color: hotpink;
-    border-width: 10px;
+/* style the countdown timer */
+#countdown-timer {
+    font-family: monospace;
+    font-weight: bold;
+    font-size: larger;
+    color: brown;
 }
