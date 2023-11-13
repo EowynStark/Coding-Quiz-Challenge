@@ -37,12 +37,12 @@ var questions = [
 // listen for a click of the start button to begin quiz
 startButton.addEventListener("click", startQuiz);
 
-// function to begin the quiz and timer
+// begins the quiz and timer
 function startQuiz(){
    timedQuiz();
    question1();
 }    
-// function to load first question
+// load first question
 function question1(){
     var question1 = questions[questionsIndex];
     questionDisplay.textContent = question1.question;
@@ -54,7 +54,7 @@ function question1(){
         questionDisplay.appendChild(answerButton);
     });
 }
-// create a function to check answer (detract from timer if wrong)
+//  checks answer (detract from timer if wrong)
 function checkAnswer(userChoice) {
     var question1 = questions[questionsIndex];
     
@@ -67,7 +67,7 @@ function checkAnswer(userChoice) {
     question2();
 }
 
-// function moves onto next question in list
+// moves on to next question in list
 function question2(){
     questionsIndex++;
     
@@ -95,7 +95,7 @@ function timedQuiz (){
         }
     },1000);
 }   
-// create a function to retain the quiz scores (local storage set)
+// intended to retain the quiz scores (local storage set) and collect user initials
 function scoreBoard(){
     scoreElement.textContent = score;
     localStorage.setItem("score", score);
@@ -104,7 +104,7 @@ function scoreBoard(){
     document.scoreBoardElement.appendChild(scoringForm).value;
 }
 
-// create a function to render the high scores (local storage get)
+// intended to render the high scores (local storage get)
 function pastScores(){
     scoreBoardElement.textContent = localStorage.getItem(scoringForm, score);
 }
