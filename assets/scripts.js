@@ -60,7 +60,7 @@ function checkAnswer(userChoice) {
     
     if (userChoice === question1.correctAnswer){
         score += 10;
-        question2();
+        // question2();
     }else {
         timeLeft-= 30;
     }
@@ -74,8 +74,9 @@ function question2(){
     if (questionsIndex < questions.length) {
         question1();
     } else {
-        clearInterval(timedQuiz);
         timerElement.textContent = "GAME OVER";
+        clearInterval(timedQuiz);
+        scoreBoard();
     }
 }
 
@@ -97,9 +98,10 @@ function timedQuiz (){
 // create a function to retain the quiz scores (local storage set)
 function scoreBoard(){
     scoreElement.textContent = score;
-    localStorage.setItem(score);
+    localStorage.setItem("score", score);
     scoringForm = document.createElement("form");
-    localStorage.setItem(scoringForm);
+    localStorage.setItem("initials", scoringForm);
+    document.scoreBoardElement.appendChild(scoringForm).value;
 }
 
 // create a function to render the high scores (local storage get)
