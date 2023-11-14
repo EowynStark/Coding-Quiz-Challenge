@@ -97,14 +97,30 @@ function timedQuiz (){
 }   
 // intended to retain the quiz scores (local storage set) and collect user initials
 function scoreBoard(){
-    scoreElement.textContent = score;
-    localStorage.setItem("score", score);
-    scoringForm = document.createElement("form");
-    localStorage.setItem("initials", scoringForm);
-    document.scoreBoardElement.appendChild(scoringForm).value;
+    if (timeLeft == 0){
+        scoringForm = document.createElement("form")
+        scoringForm.id = "scoringForm";    
+        initialScore = document.createElement("input");
+        initialScore.type= "text";
+        initialScore.name= "name";
+        scoreBoardElement.appendChild(scoringForm);
+        scoringForm.appendChild(initialScore);
+        scoreElement.textContent = score;
+        localStorage.setItem('scores', JSON.stringify(score + initialScore.value));
+    }
+    pastScores();
 }
 
 // intended to render the high scores (local storage get)
 function pastScores(){
-    scoreBoardElement.textContent = localStorage.getItem(scoringForm, score);
+    if (initialScore){
+        initialScore.value = JSON.parse(localStorage.getItem('scores'));
+        scoringForm = document.createElement("form")
+        scoringForm.id = "scoringForm";    
+        initialScore = document.createElement("input");
+        initialScore.type= "text";
+        initialScore.name= "name";
+        scoreBoardElement.appendChild(scoringForm);
+        scoringForm.appendChild(initialScore);
+    };
 }
